@@ -1,134 +1,130 @@
+---
+layout: default
+---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="images/favicon.ico">
+<!-- Wrapper -->
+<div id="wrapper">
 
-    <title>Album example for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-   <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <header>
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 py-4">
-              <h4 class="text-white">About</h4>
-              <p class="text-muted">When I am inspired, I draw. When inspired by what I drew, I share. Thanks for looking!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark">
-        <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand">Album</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </div>
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#footer" class="icon fa-info-circle">About</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Lucas Amunategui</h1>
-          <p class="lead text-muted">Art Portfolio</p>
-        </div>
-      </section>
-
-      <div class="album text-muted">
-        <div class="container">
-
-          <div class="row">
-            <div class="card">
-             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/308903119?title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-              <p class="card-text">Drowning 2017</p>
-            </div>
-            <div class="card">
-              p>
-An image as a link: <a href="https://www.w3schools.com">
-<img border="0" alt="W3Schools" src="images/lucas-amunategui-building.JPG" width="100" height="100">
-              <p class="card-text">Charcoal 2017</p>
-            </div>
-          
-             <div class="card">
-              <img src="images/lucas-amunategui-nose.jpg" alt="image 2017" style="width:100%"  
-                   data-toggle="modal" data-target="#myModal">
-              <p class="card-text">Face 1 2017</p>
-            </div>
-            <div class="card">
-              <img src="images/lucas-amunategui-face-2.JPG" alt="image 2017" style="width:100%"  
-               data-toggle="modal" data-target="#myModal">
-              <p class="card-text">Face 2 2017</p>
-            </div>
-            <div class="card">
-              <img src="images/lucas-amunategui-face-3.JPG" alt="image 2017" style="width:100%"
-                   data-toggle="modal" data-target="#myModal">
-              <p class="card-text">Face 3 2017</p>            
-            </div>
-            
-          </div>
-
-        </div>
-      </div>
-
-      
-      <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img class="img-responsive" src="" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+    <!-- Main -->
+    <div id="main">
+        {% for image in site.static_files %}
+        {% if image.path contains 'fulls' %}
+        <article class="thumb">
+            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
+                <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
+                     data-name="{{ image.name }}"/></a>
+            <!--<h2></h2>
+            <p></p>-->
+        </article>
+        {% endif %}
+        {% endfor %}
     </div>
-</div>
-      
- 
-      
-       
- </main>
 
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-      </div>
+    <!-- Footer -->
+    <footer id="footer" class="panel">
+        <div class="inner split">
+            <div>
+                <section>
+                    <h2>{{ site.footer.name }}</h2>
+                    <p>{{ site.footer.bio }}</p>
+                    <p>{{ site.footer.github }}</p>
+                </section>
+                <section>
+                    <h2>Sponsor</h2>
+                    <div class="ad">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block; text-align:center;"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-1702577941194110"
+                             data-ad-slot="9823584598"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </section>
+                <section>
+                    <h2>Follow me on ...</h2>
+                    <ul class="icons">
+                        {% if site.social_urls.facebook %}
+                            <li>
+                                <a href="{{ site.social_urls.facebook }}" class="icon fa-facebook">
+                                    <span class="label">Facebook</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.twitter %}
+                            <li>
+                                <a href="{{ site.social_urls.twitter }}" class="icon fa-twitter">
+                                    <span class="label">Twitter</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.instagram %}
+                            <li>
+                                <a href="{{ site.social_urls.instagram }}" class="icon fa-instagram">
+                                    <span class="label">Instagram</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.dribbble %}
+                            <li>
+                                <a href="{{ site.social_urls.dribbble }}" class="icon fa-dribbble">
+                                    <span class="label">Dribbble</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.github %}
+                            <li>
+                                <a href="{{ site.social_urls.github }}" class="icon fa-github">
+                                    <span class="label">GitHub</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.linkedin %}
+                            <li>
+                                <a href="{{ site.social_urls.linkedin }}" class="icon fa-linkedin">
+                                    <span class="label">LinkedIn</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </section>
+                <p class="copyright">
+                    &copy; {{ site.author }}. Design: {{ site.web_design }}
+                </p>
+            </div>
+            <div>
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="field half first">
+                            <input type="text" name="name" id="name" placeholder="Name"/>
+                        </div>
+                        <div class="field half">
+                            <input type="text" name="email" id="email" placeholder="Email"/>
+                        </div>
+                        <div class="field">
+                            <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="special"/></li>
+                            <li><input type="reset" value="Reset"/></li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
+        </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-    <script>
-    $(document).ready(function () {
-            $('#myModal').on('show.bs.modal', function (e) {
-                var image = $(e.relatedTarget).attr('src');
-                $(".img-responsive").attr("src", image);
-            });
-    });
-    </script> 
-  </body>
-</html>
+</div>
